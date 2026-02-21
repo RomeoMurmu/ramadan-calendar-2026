@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- মূল পেজ -->
+  <url>
+    <loc>https://romeomurmu.github.io/ramadan-calendar-2026/</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://romeomurmu.github.io/ramadan-calendar-2026/"/>
+  </url>
+
+  <!-- index.html direct -->
+  <url>
+    <loc>https://romeomurmu.github.io/ramadan-calendar-2026/index.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
