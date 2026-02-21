@@ -464,6 +464,55 @@
             transition: width 0.3s ease;
         }
         
+        .phase-indicator {
+            flex: 1;
+            text-align: center;
+            padding: 8px 5px;
+            border-radius: 10px;
+            background: var(--card-bg);
+            border: 2px solid transparent;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            line-height: 1.4;
+        }
+        
+        .phase-indicator.active-phase {
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .phase-indicator.done-phase {
+            border-color: var(--teal);
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--teal);
+        }
+
+        .phase-indicator {
+            flex: 1;
+            text-align: center;
+            padding: 8px 5px;
+            border-radius: 10px;
+            background: var(--card-bg);
+            border: 2px solid transparent;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            line-height: 1.5;
+        }
+        .phase-indicator.active-phase {
+            border-color: var(--gold);
+            background: rgba(255,215,0,0.15);
+            color: var(--gold);
+            font-weight: bold;
+        }
+        .phase-indicator.done-phase {
+            border-color: var(--teal);
+            background: rgba(0,255,204,0.1);
+            color: var(--teal);
+        }
         .tasbih-btns {
             display: flex;
             gap: 10px;
@@ -778,50 +827,71 @@
         </div>
         
         <div class="dua-container">
+            <!-- রোজার নিয়ত -->
             <div class="dua-card">
-                <h3><i class="fas fa-hands-praying"></i> রোজার নিয়ত (সেহরি)</h3>
-                <p class="arabic">نَوَيْتُ أَنْ أَصُومَ غَدًا مِنْ شَهْرِ رَمَضَانَ الْمُبَارَكِ</p>
-                <p class="pronunciation">নওয়াইতু আন আসুমা গাদাম মিন শাহরি রামাদ্বানাল মুবারক।</p>
-                <p class="meaning">অর্থ: আমি আগামীকাল পবিত্র রমজান মাসের রোজা রাখার নিয়ত করছি।</p>
+                <h3><i class="fas fa-hands-praying"></i> রোজার নিয়ত (সেহরি)</h3>
+                <p class="arabic">نَوَيْتُ أَنْ أَصُوْمَ غَدًا مِّنْ شَهْرِ رَمَضَانَ الْمُبَارَكِ فَرْضًا لَّكَ يَا اللهُ فَتَقَبَّلْ مِنِّىْ إِنَّكَ أَنْتَ السَّمِيْعُ الْعَلِيْمُ</p>
+                <p class="pronunciation">নাওয়াইতু আন আসূমা গাদান মিন শাহরি রামাদ্বানাল মুবারাকি ফারদ্বাল্লাকা ইয়া আল্লাহু ফাতাক্বাব্বাল মিন্নী ইন্নাকা আন্তাস সামীউল আলীম।</p>
+                <p class="meaning">অর্থ: হে আল্লাহ! আমি আগামীকাল তোমার সন্তুষ্টির জন্য পবিত্র রমজান মাসের ফরজ রোজা রাখার নিয়ত করছি। তুমি আমার পক্ষ থেকে তা কবুল করো। নিশ্চয়ই তুমি সর্বশ্রোতা ও সর্বজ্ঞ।</p>
             </div>
-            
+
+            <!-- ইফতারের দোয়া -->
             <div class="dua-card">
-                <h3><i class="fas fa-hands-praying"></i> ইফতারের দোয়া</h3>
-                <p class="arabic">اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ</p>
-                <p class="pronunciation">আল্লাহুম্মা লাকা সুমতু ওয়া আলা রিযক্বিকা আফত্বারতু।</p>
-                <p class="meaning">অর্থ: হে আল্লাহ! আমি তোমারই সন্তুষ্টির জন্য রোজা রেখেছি এবং তোমারই দেয়া রিযিক দিয়ে ইফতার করছি।</p>
+                <h3><i class="fas fa-hands-praying"></i> ইফতারের দোয়া</h3>
+                <p class="arabic">اَللّٰهُمَّ لَكَ صُمْتُ وَعَلٰى رِزْقِكَ أَفْطَرْتُ وَعَلَيْكَ تَوَكَّلْتُ وَبِكَ آمَنْتُ ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللهُ</p>
+                <p class="pronunciation">আল্লাহুম্মা লাকা সুমতু ওয়া আলা রিযক্বিকা আফত্বারতু ওয়া আলাইকা তাওয়াক্কালতু ওয়া বিকা আমানতু। যাহাবায যামাউ ওয়াবতাল্লাতিল উরূকু ওয়া সাবাতাল আজরু ইনশাআল্লাহ।</p>
+                <p class="meaning">অর্থ: হে আল্লাহ! আমি তোমারই জন্য রোজা রেখেছি এবং তোমারই দেওয়া রিযিক দিয়ে ইফতার করলাম। তোমার উপরই ভরসা করলাম এবং তোমার উপরই ইমান আনলাম। তৃষ্ণা দূর হয়েছে, শিরাগুলো সিক্ত হয়েছে এবং আল্লাহর ইচ্ছায় পুরস্কার নিশ্চিত হয়েছে।</p>
             </div>
-            
-            <div class="dua-card" id="customDuaCard" style="display: none;">
-                <h3><i class="fas fa-hands-praying"></i> <span id="customDuaTitle"></span></h3>
-                <p class="arabic" id="customDuaArabic"></p>
-                <p class="pronunciation" id="customDuaPronoun"></p>
-                <p class="meaning" id="customDuaMeaning"></p>
+
+            <!-- তারাবির দোয়া -->
+            <div class="dua-card">
+                <h3><i class="fas fa-star"></i> তারাবির দোয়া</h3>
+                <p class="arabic">سُبْحَانَ ذِي الْمُلْكِ وَالْمَلَكُوْتِ سُبْحَانَ ذِي الْعِزَّةِ وَالْعَظَمَةِ وَالْهَيْبَةِ وَالْقُدْرَةِ وَالْكِبْرِيَاءِ وَالْجَبَرُوْتِ سُبْحَانَ الْمَلِكِ الْحَيِّ الَّذِيْ لَا يَنَامُ وَلَا يَمُوْتُ أَبَدًا أَبَدَ سُبُّوْحٌ قُدُّوْسٌ رَبُّنَا وَرَبُّ الْمَلَائِكَةِ وَالرُّوْحِ</p>
+                <p class="pronunciation">সুবহানা যিল মুলকি ওয়াল মালাকূতি সুবহানা যিল ইযযাতি ওয়াল আযামাতি ওয়াল হাইবাতি ওয়াল কুদরাতি ওয়াল কিবরিয়াই ওয়াল জাবারূতি। সুবহানাল মালিকিল হাইয়িল্লাযী লা ইয়ানামু ওয়ালা ইয়ামূতু আবাদান আবাদ। সুববূহুন কুদ্দূসুন রাব্বুনা ওয়া রাব্বুল মালাইকাতি ওয়ার রূহ।</p>
+                <p class="meaning">অর্থ: পবিত্র সেই সত্তা যিনি রাজত্ব ও সার্বভৌমত্বের অধিকারী। পবিত্র সেই সত্তা যিনি সম্মান, মহত্ব, প্রতাপ, ক্ষমতা, শ্রেষ্ঠত্ব ও পরাক্রমের অধিকারী। পবিত্র সেই চিরজীবন্ত বাদশাহ যিনি কখনো ঘুমান না এবং কখনো মরবেন না। তিনি অতি পবিত্র, অতি মহিমান্বিত — তিনি আমাদের প্রভু এবং ফেরেশতাদের ও রূহের প্রভু।</p>
+            </div>
+
+            <!-- লাইলাতুল কদরের দোয়া -->
+            <div class="dua-card">
+                <h3><i class="fas fa-moon"></i> লাইলাতুল কদরের দোয়া</h3>
+                <p class="arabic">اَللّٰهُمَّ إِنَّكَ عَفُوٌّ كَرِيْمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّيْ</p>
+                <p class="pronunciation">আল্লাহুম্মা ইন্নাকা আফুউউন কারীমুন তুহিব্বুল আফওয়া ফা'ফু আন্নী।</p>
+                <p class="meaning">অর্থ: হে আল্লাহ! নিশ্চয়ই তুমি মহাক্ষমাশীল, অতি দয়ালু। তুমি ক্ষমা করতে ভালোবাসো, সুতরাং আমাকে ক্ষমা করো। (তিরমিযী)</p>
             </div>
         </div>
         
         <div class="tasbih-card">
             <div class="tasbih-header">
                 <h3><i class="fas fa-praying-hands"></i> ডিজিটাল তসবিহ</h3>
-                <div class="target-selector">
-                    <button class="target-btn" data-target="33">৩৩</button>
-                    <button class="target-btn active" data-target="100">১০০</button>
-                    <button class="target-btn" data-target="1000">১০০০</button>
-                </div>
+                <span id="tasbih-phase-label" style="color:var(--teal); font-size:0.9rem; font-weight:bold;"></span>
             </div>
-            
+
+            <!-- তসবিহর নাম দেখানো -->
+            <div id="tasbih-name" style="font-size:1.4rem; color:var(--gold); margin: 8px 0 2px; font-weight:bold;"></div>
+            <div id="tasbih-arabic" style="font-family:'Amiri',serif; font-size:2rem; color:var(--teal); margin-bottom:5px; direction:rtl;"></div>
+
+            <!-- কাউন্টার -->
             <div id="counter">০</div>
-            
+            <div style="font-size:0.9rem; color:#aaa; margin-top:-10px; margin-bottom:8px;">
+                <span id="tasbih-current-count">০</span> / <span id="tasbih-target-label">৩৩</span>
+            </div>
+
+            <!-- প্রগ্রেস বার -->
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            
+
+            <!-- তিন পর্যায় দেখানো -->
+            <div style="display:flex; justify-content:space-between; margin: 10px 0; gap:8px;">
+                <div id="phase-0" class="phase-indicator active-phase">সুবহানাল্লাহ<br><small>০/৩৩</small></div>
+                <div id="phase-1" class="phase-indicator">আলহামদুলিল্লাহ<br><small>০/৩৩</small></div>
+                <div id="phase-2" class="phase-indicator">আল্লাহু আকবার<br><small>০/৩৪</small></div>
+            </div>
+
+            <!-- বাটন -->
             <div class="tasbih-btns">
-                <button onclick="countTasbih()" class="btn-count">
-                    <i class="fas fa-plus-circle"></i> সুুবহানাল্লাহ
-                </button>
-                <button onclick="saveTasbih()" class="btn-save">
-                    <i class="fas fa-save"></i>
+                <button onclick="countTasbih()" class="btn-count" id="tasbih-main-btn">
+                    <i class="fas fa-plus-circle"></i> <span id="tasbih-btn-label">সুবহানাল্লাহ</span>
                 </button>
                 <button onclick="resetTasbih()" class="btn-reset">
                     <i class="fas fa-redo"></i>
@@ -979,8 +1049,6 @@
             const parts = savedDistrict.split('|');
             offset = parseInt(parts[parts.length - 1]);
         }
-        let tasbihCount = 0;
-        let tasbihTarget = 100;
         let currentEvent = null;
         let alertPlayed = false;
         let reminderTime = 5;
@@ -1040,57 +1108,92 @@
             }
         }
         
-        // ==================== তসবিহ ফাংশন ====================
-        function updateProgress() {
-            const percentage = (tasbihCount / tasbihTarget) * 100;
-            document.getElementById('progressFill').style.width = `${Math.min(percentage, 100)}%`;
-            
-            if (tasbihCount >= tasbihTarget) {
-                showNotification('মাশাআল্লাহ! আপনি আপনার লক্ষ্য পূরণ করেছেন!', 'success');
-                if (window.navigator.vibrate) window.navigator.vibrate([200, 100, 200]);
-            }
-        }
-        
-        function countTasbih() {
-            tasbihCount++;
-            document.getElementById('counter').innerText = formatBanglaNumber(tasbihCount);
-            if (window.navigator.vibrate) window.navigator.vibrate(50);
-            updateProgress();
-            
-            // Local storage এ সেভ
-            localStorage.setItem('tasbihCount', tasbihCount);
-        }
-        
-        function resetTasbih() {
-            tasbihCount = 0;
-            document.getElementById('counter').innerText = '০';
-            updateProgress();
-            localStorage.setItem('tasbihCount', tasbihCount);
-        }
-        
-        function saveTasbih() {
-            localStorage.setItem('tasbihCount', tasbihCount);
-            showNotification('তসবিহ কাউন্ট সেভ করা হয়েছে');
-        }
-        
-        // Tasbih target selector
-        document.querySelectorAll('.target-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.target-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                tasbihTarget = parseInt(e.target.dataset.target);
-                updateProgress();
+        // ==================== তসবিহ সিস্টেম (৩৩+৩৩+৩৪) ====================
+        const tasbihPhases = [
+            { name: 'সুবহানাল্লাহ',   arabic: 'سُبْحَانَ اللهِ',    target: 33 },
+            { name: 'আলহামদুলিল্লাহ', arabic: 'اَلْحَمْدُ لِلّٰهِ', target: 33 },
+            { name: 'আল্লাহু আকবার',  arabic: 'اَللهُ أَكْبَرُ',    target: 34 },
+        ];
+        let currentPhase = 0;
+        let phaseCount   = 0;
+        let phaseDone    = [0, 0, 0];
+
+        function updateTasbihUI() {
+            const phase = tasbihPhases[currentPhase] || tasbihPhases[2];
+            document.getElementById('tasbih-name').innerText     = phase.name;
+            document.getElementById('tasbih-arabic').innerText   = phase.arabic;
+            document.getElementById('tasbih-btn-label').innerText = phase.name;
+            document.getElementById('tasbih-target-label').innerText = formatBanglaNumber(phase.target);
+            document.getElementById('tasbih-current-count').innerText = formatBanglaNumber(phaseCount);
+            document.getElementById('counter').innerText = formatBanglaNumber(phaseCount);
+
+            // Progress bar
+            const pct = (phaseCount / phase.target) * 100;
+            document.getElementById('progressFill').style.width = Math.min(pct, 100) + '%';
+
+            // Phase indicators
+            tasbihPhases.forEach((p, i) => {
+                const el = document.getElementById('phase-' + i);
+                if (!el) return;
+                el.className = 'phase-indicator';
+                if (i === currentPhase) {
+                    el.classList.add('active-phase');
+                } else if (phaseDone[i] >= p.target) {
+                    el.classList.add('done-phase');
+                }
+                el.innerHTML = p.name + '<br><small>' + formatBanglaNumber(phaseDone[i]) + '/' + formatBanglaNumber(p.target) + '</small>';
             });
-        });
-        
-        // Load saved tasbih count
-        const savedTasbih = localStorage.getItem('tasbihCount');
-        if (savedTasbih) {
-            tasbihCount = parseInt(savedTasbih);
-            document.getElementById('counter').innerText = formatBanglaNumber(tasbihCount);
-            updateProgress();
+
+            document.getElementById('tasbih-phase-label').innerText = (currentPhase + 1) + '/৩ পর্যায়';
         }
-        
+
+        function countTasbih() {
+            if (currentPhase >= tasbihPhases.length) return;
+            phaseCount++;
+            phaseDone[currentPhase] = phaseCount;
+            if (window.navigator.vibrate) window.navigator.vibrate(40);
+            const phase = tasbihPhases[currentPhase];
+            if (phaseCount >= phase.target) {
+                phaseDone[currentPhase] = phase.target;
+                if (window.navigator.vibrate) window.navigator.vibrate([100,50,100]);
+                if (currentPhase < tasbihPhases.length - 1) {
+                    showNotification('মাশাআল্লাহ! ' + phase.name + ' ✓ পরবর্তী: ' + tasbihPhases[currentPhase+1].name, 'success');
+                    currentPhase++;
+                    phaseCount = 0;
+                } else {
+                    showNotification('আলহামদুলিল্লাহ! ৩টি তসবিহ সম্পন্ন! ✨', 'success');
+                    if (window.navigator.vibrate) window.navigator.vibrate([200,100,200,100,200]);
+                }
+            }
+            updateTasbihUI();
+            saveTasbihState();
+        }
+
+        function resetTasbih() {
+            currentPhase = 0; phaseCount = 0; phaseDone = [0,0,0];
+            updateTasbihUI();
+            saveTasbihState();
+            showNotification('তসবিহ রিসেট হয়েছে');
+        }
+
+        function saveTasbih() { saveTasbihState(); }
+
+        function saveTasbihState() {
+            localStorage.setItem('tasbihState', JSON.stringify({currentPhase, phaseCount, phaseDone}));
+        }
+
+        // Load saved tasbih state
+        const savedTasbihState = localStorage.getItem('tasbihState');
+        if (savedTasbihState) {
+            try {
+                const s = JSON.parse(savedTasbihState);
+                currentPhase = s.currentPhase || 0;
+                phaseCount   = s.phaseCount   || 0;
+                phaseDone    = s.phaseDone     || [0,0,0];
+            } catch(e) {}
+        }
+        updateTasbihUI();
+
         // ==================== টেবিল রেন্ডার ====================
         function renderTable() {
             const tableBody = document.getElementById('ramadan-table');
