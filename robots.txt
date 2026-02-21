@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://romeomurmu.github.io/ramadan-calendar-2026/sitemap.xml
