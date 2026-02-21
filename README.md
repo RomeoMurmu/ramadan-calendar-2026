@@ -60,4 +60,4 @@ ramadan-calendar-2026/
 
 ## 📜 লাইসেন্স
 
-MIT License © 2026 — [Romeo Murmu](https://github.com/RomeoMurmu)
+MIT License © 2026 — [Romeo](https://github.com/RomeoMurmu)
