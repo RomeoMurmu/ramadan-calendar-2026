@@ -1119,16 +1119,31 @@
         let phaseDone    = [0, 0, 0];
 
         function updateTasbihUI() {
-            const phase = tasbihPhases[currentPhase] || tasbihPhases[2];
-            document.getElementById('tasbih-name').innerText     = phase.name;
+            const isAllDone = currentPhase >= tasbihPhases.length;
+            const phase = isAllDone ? tasbihPhases[2] : tasbihPhases[currentPhase];
+            const displayCount = isAllDone ? phase.target : phaseCount;
+
+            document.getElementById('tasbih-name').innerText     = isAllDone ? '✅ সম্পন্ন' : phase.name;
             document.getElementById('tasbih-arabic').innerText   = phase.arabic;
-            document.getElementById('tasbih-btn-label').innerText = phase.name;
+            document.getElementById('tasbih-btn-label').innerText = isAllDone ? 'সম্পন্ন হয়েছে' : phase.name;
             document.getElementById('tasbih-target-label').innerText = formatBanglaNumber(phase.target);
-            document.getElementById('tasbih-current-count').innerText = formatBanglaNumber(phaseCount);
-            document.getElementById('counter').innerText = formatBanglaNumber(phaseCount);
+            document.getElementById('tasbih-current-count').innerText = formatBanglaNumber(displayCount);
+            document.getElementById('counter').innerText = formatBanglaNumber(displayCount);
+
+            // বাটন disable করো যদি সব শেষ
+            const btn = document.getElementById('tasbih-main-btn');
+            if (isAllDone) {
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+            } else {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+            }
 
             // Progress bar
-            const pct = (phaseCount / phase.target) * 100;
+            const pct = (displayCount / phase.target) * 100;
             document.getElementById('progressFill').style.width = Math.min(pct, 100) + '%';
 
             // Phase indicators
@@ -1136,31 +1151,42 @@
                 const el = document.getElementById('phase-' + i);
                 if (!el) return;
                 el.className = 'phase-indicator';
-                if (i === currentPhase) {
+                const doneCount = phaseDone[i] || 0;
+                if (!isAllDone && i === currentPhase) {
                     el.classList.add('active-phase');
-                } else if (phaseDone[i] >= p.target) {
+                } else if (doneCount >= p.target) {
                     el.classList.add('done-phase');
                 }
-                el.innerHTML = p.name + '<br><small>' + formatBanglaNumber(phaseDone[i]) + '/' + formatBanglaNumber(p.target) + '</small>';
+                el.innerHTML = p.name + '<br><small>' + formatBanglaNumber(doneCount) + '/' + formatBanglaNumber(p.target) + '</small>';
             });
 
-            document.getElementById('tasbih-phase-label').innerText = (currentPhase + 1) + '/৩ পর্যায়';
+            document.getElementById('tasbih-phase-label').innerText = isAllDone ? '✅ সম্পন্ন' : (currentPhase + 1) + '/৩ পর্যায়';
         }
 
         function countTasbih() {
+            // সব তসবিহ শেষ হলে আর কাউন্ট হবে না
             if (currentPhase >= tasbihPhases.length) return;
+            
+            const phase = tasbihPhases[currentPhase];
+            
+            // এই phase এর target ইতিমধ্যে পূর্ণ হলে কাউন্ট বন্ধ
+            if (phaseCount >= phase.target) return;
+
             phaseCount++;
             phaseDone[currentPhase] = phaseCount;
             if (window.navigator.vibrate) window.navigator.vibrate(40);
-            const phase = tasbihPhases[currentPhase];
+
             if (phaseCount >= phase.target) {
                 phaseDone[currentPhase] = phase.target;
                 if (window.navigator.vibrate) window.navigator.vibrate([100,50,100]);
                 if (currentPhase < tasbihPhases.length - 1) {
-                    showNotification('মাশাআল্লাহ! ' + phase.name + ' ✓ পরবর্তী: ' + tasbihPhases[currentPhase+1].name, 'success');
+                    // পরবর্তী phase এ যাও
+                    showNotification('মাশাআল্লাহ! ' + phase.name + ' ✓  পরবর্তী: ' + tasbihPhases[currentPhase+1].name, 'success');
                     currentPhase++;
                     phaseCount = 0;
                 } else {
+                    // সব শেষ — currentPhase কে length এ সেট করো যাতে বাটন বন্ধ হয়
+                    currentPhase = tasbihPhases.length;
                     showNotification('আলহামদুলিল্লাহ! ৩টি তসবিহ সম্পন্ন! ✨', 'success');
                     if (window.navigator.vibrate) window.navigator.vibrate([200,100,200,100,200]);
                 }
@@ -1236,8 +1262,9 @@
                 calendar.appendChild(dayEl);
             });
             
-            const startDate = new Date('2026-02-18');
-            const startDay = startDate.getDay();
+            // রমজানের প্রথম দিন থেকে শুরু (T00:00:00 দিয়ে local time parse)
+            const startDate = new Date(ramadanData[0].date + 'T00:00:00');
+            const startDay = startDate.getDay(); // 0=রবি, 1=সোম...
             
             // Empty cells before start
             for (let i = 0; i < startDay; i++) {
@@ -1247,7 +1274,7 @@
             }
             
             ramadanData.forEach(day => {
-                const date = new Date(day.date);
+                const date = new Date(day.date + 'T00:00:00');
                 const dayEl = document.createElement('div');
                 dayEl.style.padding = '10px';
                 dayEl.style.background = 'var(--card-bg)';
