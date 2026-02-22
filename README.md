@@ -38,6 +38,8 @@ ramadan-calendar-2026/
 ├── index.html        # মূল অ্যাপ ফাইল
 ├── manifest.json     # PWA manifest
 ├── sw.js             # Service Worker
+├── sitemap.xml       # Sitemap files
+├── Robotos.txt       # robots.txt for allow all user agents 
 ├── README.md         # এই ফাইল
 └── icons/            # অ্যাপ আইকন
     ├── icon-72x72.png
