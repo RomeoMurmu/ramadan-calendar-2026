@@ -1,9 +1,9 @@
 {
   "name": "রমজান ক্যালেন্ডার ২০২৬",
   "short_name": "রমজান ২০২৬",
-  "description": "রমজান ২০২৬ বাংলাদেশের সকল জেলার সঠিক ইফতার ও সেহরির সময়সূচি। লাইভ কাউন্টডাউন, ডিজিটাল তসবিহ এবং রমজানের দোয়া।",
-  "start_url": "/",
-  "scope": "/",
+  "description": "ইসলামিক ফাউন্ডেশন বাংলাদেশ অনুযায়ী রমজান ২০২৬ সেহরি ও ইফতারের সম্পূর্ণ সময়সূচি। Ramadan Calendar 2026 Bangladesh.",
+  "start_url": "/ramadan-calendar-2026/index.html",
+  "scope": "/ramadan-calendar-2026/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#1a1a2e",
@@ -20,7 +20,7 @@
       "name": "আজকের ইফতার",
       "short_name": "ইফতার",
       "description": "আজকের ইফতারের সময় দেখুন",
-      "url": "https://romeomurmu.github.io/ramadan-calendar-2026/?shortcut=iftar",
+      "url": "/ramadan-calendar-2026/?shortcut=iftar",
       "icons": [
         {
           "src": "icons/icon-96x96.png",
@@ -32,7 +32,7 @@
       "name": "আজকের সেহরি",
       "short_name": "সেহরি",
       "description": "আজকের সেহরির সময় দেখুন",
-      "url": "https://romeomurmu.github.io/ramadan-calendar-2026/?shortcut=sehri",
+      "url": "/ramadan-calendar-2026/?shortcut=sehri",
       "icons": [
         {
           "src": "icons/icon-96x96.png",
