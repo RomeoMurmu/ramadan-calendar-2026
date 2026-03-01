@@ -48,15 +48,17 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Navigation request (পেজ লোড) — সবসময় index.html দাও
+  // sitemap.xml, robots.txt — SW bypass, সরাসরি network থেকে দাও
+  if (url.pathname.endsWith('.xml') || url.pathname.endsWith('.txt')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Navigation request (পেজ লোড) — network first, cache fallback
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      caches.match(BASE_PATH + '/index.html')
-        .then(cached => {
-          if (cached) return cached;
-          return fetch(BASE_PATH + '/index.html')
-            .catch(() => caches.match(BASE_PATH + '/'));
-        })
+      fetch(event.request)
+        .catch(() => caches.match(BASE_PATH + '/index.html'))
     );
     return;
   }
@@ -84,18 +86,3 @@ self.addEventListener('fetch', event => {
     })
   );
 });
-
-if (event.request.mode === 'navigate') {
-  // sitemap বা robots.txt হলে সার্ভিস ওয়ার্কার কাজ করবে না, সরাসরি সার্ভার থেকে আসবে
-  if (url.pathname.endsWith('.xml') || url.pathname.endsWith('.txt')) {
-    return;
-  }
-
-  event.respondWith(
-    caches.match(BASE_PATH + '/index.html')
-      .then(cached => {
-        return cached || fetch(BASE_PATH + '/index.html');
-      })
-  );
-  return;
-}
