@@ -84,3 +84,18 @@ self.addEventListener('fetch', event => {
     })
   );
 });
+
+if (event.request.mode === 'navigate') {
+  // sitemap বা robots.txt হলে সার্ভিস ওয়ার্কার কাজ করবে না, সরাসরি সার্ভার থেকে আসবে
+  if (url.pathname.endsWith('.xml') || url.pathname.endsWith('.txt')) {
+    return;
+  }
+
+  event.respondWith(
+    caches.match(BASE_PATH + '/index.html')
+      .then(cached => {
+        return cached || fetch(BASE_PATH + '/index.html');
+      })
+  );
+  return;
+}
